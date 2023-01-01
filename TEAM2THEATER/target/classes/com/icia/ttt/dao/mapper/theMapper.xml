@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Theater">
+
+	<!-- 영화목록 -->
+	<select id="theList" resultType="theater">
+		SELECT * FROM THEATER WHERE THE_DAY = #{the_Day} AND THE_NAME = #{the_Name} AND THE_LOC2 = #{the_Loc2}
+	</select>
+	
+	<!-- 좌석예매 할떄 영화 목록 -->
+	<select id="seetTheater" resultType="theater">
+		SELECT * FROM THEATER WHERE THE_CODE = #{code} 
+	</select>
+	
+	<!-- 좌석 컬러 -->
+	<select id="setColor" resultType="reser" > 
+		SELECT * FROM RESERVATION WHERE RES_DAY = #{res_Day} AND RES_MVNAME = #{res_Mvname} AND RES_LOC2 = #{res_Loc2} AND RES_THEATER = #{res_Theater} AND RES_SEET = #{res_Seet} AND RES_START = #{res_Start} AND RES_END = #{res_End} 
+	</select>
+	
+	<!-- 결제 -->
+	<insert id="dopay" parameterType="reser">
+		INSERT INTO RESERVATION VALUES(RES_SEQ.NEXTVAL, #{res_Id}, #{res_Mvname}, #{res_Day}, #{res_Theater}, #{res_Loc2}, #{res_Start}, #{res_End}, #{res_Person}, #{res_Price}, #{res_Adult}, #{res_Youth}, #{res_Child}, #{res_Seet})
+	</insert>
+	
+	
+</mapper>
