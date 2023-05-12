@@ -1,4 +1,5 @@
 # TTT
+![TTT](https://github.com/kimhyeon622/ttt/assets/121088829/6b103f1c-7ac2-41b7-ab4a-40c370537ab2)
 
 ## TTTheater
 인천일보아카데미 두번째 프로젝트(세미프로젝트) <br/>
